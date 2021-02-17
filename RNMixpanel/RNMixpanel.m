@@ -69,6 +69,14 @@ RCT_EXPORT_METHOD(getDistinctId:(NSString *)apiToken
     resolve([self getInstance:apiToken].distinctId);
 }
 
+// get user id
+RCT_EXPORT_METHOD(setServerUrl:(NSString *)serverUrl apiToken:(NSString *)apiToken
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
+    [self getInstance:apiToken].serverURL = serverUrl;
+    resolve(nil);
+}
+
 // get superProp
 RCT_EXPORT_METHOD(getSuperProperty: (NSString *)prop
                   apiToken:(NSString *)apiToken

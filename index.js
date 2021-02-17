@@ -44,6 +44,17 @@ export class MixpanelInstance {
     return RNMixpanel.getDistinctId(this.apiToken)
   }
 
+
+  /*
+  Sets the sever url to call to.
+  */
+  setServerUrl(serverUrl: string): Promise<void> {
+    if (!this.initialized) {
+      return Promise.reject(new Error(uninitializedError('setServerUrl')))
+    }
+    return RNMixpanel.setServerUrl(serverUrl, this.apiToken)
+  }
+
   /*
   Gets the given super property.  Returns a promise that resolves to the value.
   */
